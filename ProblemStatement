@@ -1,0 +1,22 @@
+PROBLEM:
+
+1) Fruits Cart to add fruits to cart and calculate cart value
+CASE 1: calculate for N number of Fruits
+CASE 2: Calculate price for seasonSales for every fruit
+
+SOLUTION: 
+
+1) Defined 2 models
+    i) Fruit [States name and price of a fruit]
+   ii) BuyAndGet [States the minimum buy count and respective free count of a fruit]
+   
+2) Defined Cart Services with addToCart and totalCartValue implementations
+    i) addToCart [Gets parameters as Fruit(Fruit),Count(int) and SeasonSale(boolean)]
+        case 1: if seasonSale is true 
+             Redefine Count with buyAndGet Count [ count=((count/totalCountAfterBuyFree)*minimumBuyCount)+(count%totalCountAfterBuyFree)]
+             and add the fruits to FruitsList
+        case 2: if seasonSale is false
+             Add fruits to FruitsList
+
+  ii) totalCartValue [Returns TotalCart Price]
+      Get each fruit count,price and return their multiplies value
